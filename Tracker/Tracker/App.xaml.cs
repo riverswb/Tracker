@@ -1,5 +1,6 @@
 ﻿using System;
 using Tracker.Data;
+using Tracker.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,7 +14,8 @@ namespace Tracker
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            var nav = (new TodoListPage());
+            MainPage = nav;
         }
 
         public static TodoItemDatabase Database
