@@ -7,22 +7,19 @@ using Tracker.Models;
 
 namespace Tracker.Data
 {
-    public class TodoItemDatabase
+    public class TodoItemDatabase : BaseDatabase
     {
-        static readonly Lazy<SQLiteAsyncConnection> lazyInitializer = new Lazy<SQLiteAsyncConnection>(() =>
-        {
-            return new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
-        });
 
-        static SQLiteAsyncConnection Database => lazyInitializer.Value;
         static bool initialized = false;
 
         public TodoItemDatabase()
         {
-            InitializeAsync().SafeFireAndForget(false);
+            InitializeTodoItemAsync().SafeFireAndForget(false);
         }
 
-        async Task InitializeAsync()
+        public static TodoItemDatabase DB = new TodoItemDatabase();
+   
+        async Task InitializeTodoItemAsync()
         {
             if (!initialized)
             {
@@ -36,6 +33,9 @@ namespace Tracker.Data
 
         public Task<List<TodoItem>> GetItemsAsync()
         {
+            var test = Database.Table<TodoItem>().ToListAsync();
+
+
             return Database.Table<TodoItem>().ToListAsync();
         }
 

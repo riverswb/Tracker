@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tracker.Data;
 using Tracker.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,6 +13,9 @@ namespace Tracker.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TodoListPage : ContentPage
     {
+        //private TodoItemDatabase itemDB = new TodoItemDatabase();
+        private TodoItemDatabase itemDB = TodoItemDatabase.DB;
+
         public TodoListPage()
         {
             InitializeComponent();
@@ -20,7 +24,7 @@ namespace Tracker.Views
         {
             base.OnAppearing();
 
-            listView.ItemsSource = await App.Database.GetItemsAsync();
+            listView.ItemsSource = await itemDB.GetItemsAsync();
         }
 
         async void OnItemAdded(object sender, EventArgs e)

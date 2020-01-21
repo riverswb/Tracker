@@ -1,14 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Tracker.Models;
-
+using Tracker.Data;
 
 namespace Tracker.Views
 {
+    
+
     public class TodoItemPageCS : ContentPage
     {
+        //private TodoItemDatabase itemDB = new TodoItemDatabase();
+        private TodoItemDatabase itemDB = TodoItemDatabase.DB;
+
         public TodoItemPageCS()
         {
             Title = "Todo Item";
@@ -26,7 +28,7 @@ namespace Tracker.Views
             saveButton.Clicked += async (sender, e) =>
             {
                 var todoItem = (TodoItem)BindingContext;
-                await App.Database.SaveItemAsync(todoItem);
+                await itemDB.SaveItemAsync(todoItem);
                 await Navigation.PopAsync();
             };
 
@@ -34,7 +36,7 @@ namespace Tracker.Views
             deleteButton.Clicked += async (sender, e) =>
             {
                 var todoItem = (TodoItem)BindingContext;
-                await App.Database.DeleteItemAsync(todoItem);
+                await itemDB.DeleteItemAsync(todoItem);
                 await Navigation.PopAsync();
             };
 

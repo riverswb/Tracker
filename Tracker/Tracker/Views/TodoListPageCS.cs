@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 using Tracker.Models;
-
+using Tracker.Data;
 
 namespace Tracker.Views
 {
     public class TodoListPageCS : ContentPage
     {
         ListView listView;
+
+        private TodoItemDatabase itemDB = TodoItemDatabase.DB;
 
         public TodoListPageCS()
         {
@@ -77,7 +79,7 @@ namespace Tracker.Views
         {
             base.OnAppearing();
 
-            listView.ItemsSource = await App.Database.GetItemsAsync();
+            listView.ItemsSource = await itemDB.GetItemsAsync();
         }
     }
 }

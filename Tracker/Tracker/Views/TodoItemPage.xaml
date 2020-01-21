@@ -4,9 +4,9 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Tracker.Views.TodoItemPage">
-    <ContentPage.Content>
-        <StackLayout>
+             x:Class="Tracker.Views.TodoItemPage"
+             Title="{Binding Name}">
+        <StackLayout Margin="20" VerticalOptions="StartAndExpand">
             <Label Text="Name "/>
             <Entry Text="{Binding Name}" />
             <Label Text="Notes "/>
@@ -17,5 +17,4 @@
             <Button Text="Delete" Clicked="OnDeleteClicked"/>
             <Button Text="Cancel" Clicked="OnCancelClicked"/>
         </StackLayout>
-    </ContentPage.Content>
 </ContentPage>

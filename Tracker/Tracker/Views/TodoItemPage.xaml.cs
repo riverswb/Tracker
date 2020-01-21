@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tracker.Data;
 using Tracker.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,6 +13,10 @@ namespace Tracker.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TodoItemPage : ContentPage
     {
+        //TodoItemDatabase itemDB = new TodoItemDatabase();
+        private TodoItemDatabase itemDB = TodoItemDatabase.DB;
+
+
         public TodoItemPage()
         {
             InitializeComponent();
@@ -31,21 +36,21 @@ namespace Tracker.Views
             saveButton.Clicked += async (sender, e) =>
             {
                 var todoItem = (TodoItem)BindingContext;
-                await App.Database.SaveItemAsync(todoItem);
+                await itemDB.SaveItemAsync(todoItem);
 
             };
         }
         async void OnSaveClicked(object sender, EventArgs e)
         {
             var todoItem = (TodoItem)BindingContext;
-            await App.Database.SaveItemAsync(todoItem);
+            await itemDB.SaveItemAsync(todoItem);
             await Navigation.PopAsync();
         }
 
         async void OnDeleteClicked(object sender, EventArgs e)
         {
             var todoItem = (TodoItem)BindingContext;
-            await App.Database.DeleteItemAsync(todoItem);
+            await itemDB.DeleteItemAsync(todoItem);
             await Navigation.PopAsync();
         }
 
