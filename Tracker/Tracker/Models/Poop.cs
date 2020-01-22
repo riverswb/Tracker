@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using System;
 
 namespace Tracker.Models
 {
@@ -6,8 +7,13 @@ namespace Tracker.Models
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
-        public string Date { get; set; } // ISO string format: YYY-MM-DD HH:MM:SS.SSS
 
+        private string _date;
+
+        public string Date {
+            get { return _date; }
+            set { _date = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.s"); } // ISO string format: YYY-MM-DD HH:MM:SS.SSS
+        }
         public int Scale { get; set; } //Bristol stool rating scale 1-7
 
 

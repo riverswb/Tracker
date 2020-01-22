@@ -18,8 +18,8 @@ namespace Tracker.Views
             var saveButton = new Button { Text = "Save" };
             saveButton.Clicked += async (sender, e) =>
             {
-                var todoItem = (Poop)BindingContext;
-                await poopDB.SavePoopAsync(todoItem);
+                var poop = (Poop)BindingContext;
+                await poopDB.SavePoopAsync(poop);
                 await Navigation.PopAsync();
             };
 

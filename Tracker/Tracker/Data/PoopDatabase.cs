@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,6 +30,11 @@ namespace Tracker.Data
                     initialized = true;
                 }
             }
+        }
+
+        internal Task<List<Poop>> GetPoopsAsync()
+        {
+            return Database.Table<Poop>().ToListAsync();
         }
 
         public Task<int> SavePoopAsync(Poop poop)

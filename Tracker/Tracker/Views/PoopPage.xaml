@@ -5,12 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Tracker.Views.PoopPage">
-    <ContentPage.Content>
         <StackLayout>
             <Label Text="Scale "/>
             <Entry Text="{Binding Scale}" />
 
-            <Button Text="Save" Clicked="OnSaveClicked"/>
+            <Button Text="Save" Clicked="OnPoopSaveClicked"/>
         </StackLayout>
-    </ContentPage.Content>
 </ContentPage>

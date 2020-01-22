@@ -17,7 +17,7 @@ namespace Tracker
             Resources.Add("primaryGreen", Color.FromHex("91CA47"));
             Resources.Add("darkPrimaryGreen", Color.FromHex("6FA22E"));
 
-            var nav = new NavigationPage(new TodoListPage());
+            var nav = new NavigationPage(new QuantityListPage());
             nav.BarBackgroundColor = (Color)App.Current.Resources["primaryGreen"];
             nav.BarTextColor = Color.White;
             MainPage = nav;

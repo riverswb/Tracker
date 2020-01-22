@@ -29,11 +29,11 @@ namespace Tracker.Views
             };
         }
 
-        async void OnSaveClicked(object sender, EventArgs e)
+        async void OnPoopSaveClicked(object sender, EventArgs e)
         {
             var poop = (Poop)BindingContext;
             await poopDB.SavePoopAsync(poop);
-            await Navigation.PopAsync();
+            await Navigation.PushAsync(new QuantityListPage());
         }
     }
 }
