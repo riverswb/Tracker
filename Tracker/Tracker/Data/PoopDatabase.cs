@@ -16,6 +16,8 @@ namespace Tracker.Data
             InitializePoopAsync().SafeFireAndForget(false);
         }
 
+        public static PoopDatabase DB = new PoopDatabase();
+
         async Task InitializePoopAsync()
         {
             if (!initialized)

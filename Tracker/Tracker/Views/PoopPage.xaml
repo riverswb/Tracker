@@ -7,9 +7,10 @@
              x:Class="Tracker.Views.PoopPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Scale "/>
+            <Entry Text="{Binding Scale}" />
+
+            <Button Text="Save" Clicked="OnSaveClicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
