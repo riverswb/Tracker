@@ -25,7 +25,7 @@ namespace Tracker.Views
                         VerticalTextAlignment = TextAlignment.Center,
                         HorizontalOptions = LayoutOptions.StartAndExpand
                     };
-                    label.SetBinding(Label.TextProperty, "name");
+                    label.SetBinding(Label.TextProperty, "Key");
 
                     var stacklayout = new StackLayout
                     {

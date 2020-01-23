@@ -14,40 +14,53 @@ namespace Tracker.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class QuantityListPage : ContentPage
     {
-        private Dictionary<string, Dictionary<Page, object>> Tables = new Dictionary<string, Dictionary<Page, object>>()
-        {
-            ["TodoItem"] = { [new TodoItemPage()] = new TodoItem() },
-            ["Poop"] = { [new PoopPage()] = new Poop()}
-        };
 
-        private Dictionary<Page, object> PageTables = new Dictionary<Page, object>()
-        {
-
-        };
+        
+            
+ 
         private BaseDatabase baseDB = BaseDatabase.DB;
         public QuantityListPage()
         {
             InitializeComponent();
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
-            listView.ItemsSource = await baseDB.GetAllTablesAsync();
+            listView.ItemsSource = Tables;
         }
-
-        async void OnQuantitySelected(object sender, SelectedItemChangedEventArgs e)
+        private string[] Tables = new string[2]
         {
-            var all = Tables[sender.ToString()];
-            var page = all.Keys.FirstOrDefault();
-            var quantity = all.Values.FirstOrDefault();
+            "TodoItem",
+            "Poop"
+        };
 
-            if(e.SelectedItem != null)
+    async void OnQuantitySelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
+            if (e.SelectedItem != null)
             {
-                await Navigation.PushAsync(page
+                string quantity = e.SelectedItem.ToString();
+                //var quantity = Tables[e.SelectedItem.name];
+                int id = Array.IndexOf(Tables, quantity);
+
+                if(id == 0)
                 {
-                    BindingContext = e.SelectedItem as quantity
-                });
+                    await Navigation.PushAsync(new TodoItemPage
+                    {
+                        BindingContext = e.SelectedItem as TodoItem
+                    });
+
+                }
+                if (id == 1)
+                {
+                    await Navigation.PushAsync(new PoopPage
+                    {
+                        BindingContext = e.SelectedItem as Poop
+                    });
+
+                }
+
             }
         }
     }

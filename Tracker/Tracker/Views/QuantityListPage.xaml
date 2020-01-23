@@ -14,7 +14,7 @@
             <DataTemplate>
                 <ViewCell>
                     <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        <Label Text="{Binding name}" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
+                        <Label Text="{Binding}" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
                     
                     </StackLayout>
                 </ViewCell>
