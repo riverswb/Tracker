@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,7 +8,7 @@ using Tracker.Models;
 
 namespace Tracker.Data
 {
-    class PoopDatabase : BaseDatabase
+    public class PoopDatabase : BaseDatabase
     {
         static bool initialized = false;
         
@@ -15,6 +16,8 @@ namespace Tracker.Data
         {
             InitializePoopAsync().SafeFireAndForget(false);
         }
+
+        public static PoopDatabase DB = new PoopDatabase();
 
         async Task InitializePoopAsync()
         {
@@ -27,6 +30,11 @@ namespace Tracker.Data
                     initialized = true;
                 }
             }
+        }
+
+        internal Task<List<Poop>> GetPoopsAsync()
+        {
+            return Database.Table<Poop>().ToListAsync();
         }
 
         public Task<int> SavePoopAsync(Poop poop)

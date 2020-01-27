@@ -15,6 +15,7 @@ namespace Tracker.Views
     {
         //TodoItemDatabase itemDB = new TodoItemDatabase();
         private TodoItemDatabase itemDB = TodoItemDatabase.DB;
+        
 
 
         public TodoItemPage()
@@ -40,6 +41,14 @@ namespace Tracker.Views
 
             };
         }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            await itemDB.GetItemsAsync();
+        }
+
         async void OnSaveClicked(object sender, EventArgs e)
         {
             var todoItem = (TodoItem)BindingContext;

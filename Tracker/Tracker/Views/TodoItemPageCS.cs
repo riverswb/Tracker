@@ -8,8 +8,8 @@ namespace Tracker.Views
 
     public class TodoItemPageCS : ContentPage
     {
-        //private TodoItemDatabase itemDB = new TodoItemDatabase();
-        private TodoItemDatabase itemDB = TodoItemDatabase.DB;
+        private TodoItemDatabase itemDB = new TodoItemDatabase();
+        //private TodoItemDatabase itemDB = TodoItemDatabase.DB;
 
         public TodoItemPageCS()
         {
