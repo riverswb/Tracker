@@ -19,8 +19,9 @@
             <DataTemplate>
                 <ViewCell>
                     <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        <Label Text="{Binding Name}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
-                        <Image Source="check.png" HorizontalOptions="End" IsVisible="{Binding Done}" />
+                        <Label Text="{Binding Date}" VerticalTextAlignment="Start" HorizontalOptions="StartAndExpand" />
+
+                        <Label Text="{Binding Scale}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>

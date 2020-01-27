@@ -3,7 +3,7 @@ using System;
 
 namespace Tracker.Models
 {
-    class Poop
+    public class Poop
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }

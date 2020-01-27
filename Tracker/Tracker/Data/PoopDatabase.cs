@@ -8,7 +8,7 @@ using Tracker.Models;
 
 namespace Tracker.Data
 {
-    class PoopDatabase : BaseDatabase
+    public class PoopDatabase : BaseDatabase
     {
         static bool initialized = false;
         

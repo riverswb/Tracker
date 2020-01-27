@@ -18,7 +18,7 @@ namespace Tracker.Views
         
             
  
-        private BaseDatabase baseDB = BaseDatabase.DB;
+        private BaseDatabase baseDB = new BaseDatabase();
         public QuantityListPage()
         {
             InitializeComponent();
@@ -46,18 +46,15 @@ namespace Tracker.Views
 
                 if(id == 0)
                 {
-                    await Navigation.PushAsync(new TodoItemPage
-                    {
-                        BindingContext = e.SelectedItem as TodoItem
-                    });
+                    await Navigation.PushAsync(new TodoListPage());
 
                 }
                 if (id == 1)
                 {
-                    await Navigation.PushAsync(new PoopPage
-                    {
-                        BindingContext = e.SelectedItem as Poop
-                    });
+                    await Navigation.PushAsync(new PoopListPage());
+                    //{
+                    //    BindingContext = e.SelectedItem as Poop
+                    //});
 
                 }
 

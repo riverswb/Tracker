@@ -23,7 +23,9 @@ namespace Tracker.Data
         {
             if (!initialized)
             {
+                //if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(TodoItem).Name))
                 if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(TodoItem).Name))
+
                 {
                     await Database.CreateTablesAsync(CreateFlags.None, typeof(TodoItem)).ConfigureAwait(false);
                     initialized = true;

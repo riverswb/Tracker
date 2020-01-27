@@ -29,7 +29,7 @@ namespace Tracker.Views
         {
             await Navigation.PushAsync(new PoopPage
             {
-                BindingContext = new PoopPage()
+                BindingContext = new Poop()
             });
         }
 

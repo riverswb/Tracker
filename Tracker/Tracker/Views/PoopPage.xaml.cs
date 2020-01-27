@@ -13,7 +13,8 @@ namespace Tracker.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PoopPage : ContentPage
     {
-        PoopDatabase poopDB = new PoopDatabase();
+        //private TodoItemDatabase itemDB = TodoItemDatabase.DB;
+        PoopDatabase poopDB =  PoopDatabase.DB;
         public PoopPage()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace Tracker.Views
         {
             var poop = (Poop)BindingContext;
             await poopDB.SavePoopAsync(poop);
-            await Navigation.PushAsync(new QuantityListPage());
+            await Navigation.PopAsync();
         }
     }
 }

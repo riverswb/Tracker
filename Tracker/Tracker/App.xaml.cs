@@ -1,14 +1,14 @@
 ﻿using Tracker.Data;
 using Tracker.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 
 namespace Tracker
 {
     public partial class App : Application
     {
-        static BaseDatabase database;
+        static TodoItemDatabase todoItemDB;
+        static PoopDatabase poopDB;
 
         public App()
         {
@@ -22,18 +22,43 @@ namespace Tracker
             nav.BarTextColor = Color.White;
             MainPage = nav;
         }
-
-        public static BaseDatabase Database
+        
+        //public static BaseDatabase Database
+        //{
+        //    get
+        //    {
+        //        if (database == null)
+        //        {
+        //            database = new BaseDatabase();
+        //        }
+        //        return database;
+        //    }
+        //}
+        public static TodoItemDatabase ToDoItemmDatabase
         {
             get
             {
-                if (database == null)
+                if (todoItemDB == null)
                 {
-                    database = new BaseDatabase();
+                    todoItemDB = new TodoItemDatabase();
                 }
-                return database;
+                return todoItemDB;
             }
         }
+
+        public static PoopDatabase PoopDatabase
+        {
+
+            get
+            {
+                if (poopDB == null)
+                {
+                    poopDB = new PoopDatabase();
+                }
+                return poopDB;
+            }
+        }
+
 
         protected override void OnStart()
         {
